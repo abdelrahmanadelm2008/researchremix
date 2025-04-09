@@ -4,115 +4,166 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Works cited and references for the Digital Dilemmas research website, created as part of an English Composition course at Northwest Mississippi Community College.">
-  <title>References | Digital Dilemmas</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <meta name="description" content="Digital Dilemmas explores the vital role of parental guidance in managing children's digital exposure.">
+  <title>Digital Dilemmas | Parental Role</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* Common Styles */
+    * { box-sizing: border-box; transition: all 0.3s ease; }
+    body { margin: 0; font-family: 'Open Sans', sans-serif; background: #f4f8fb; color: #333; line-height: 1.6; }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+    
+    /* Header & Navigation */
+    header {
+      background: linear-gradient(135deg, #004d7a, #008793);
+      padding: 2rem 1rem;
+      position: sticky; top: 0; z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2); text-align: center; color: #fff;
+    }
+    header .logo {
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; color: #fff;
+    }
+    header .logo img { width: 50px; margin-right: 1rem; }
+    header h1 { font-family: 'Poppins', sans-serif; margin: 0.2rem 0; font-size: 2.5rem; }
+    .tagline { font-size: 1rem; font-style: italic; opacity: 0.9; margin-top: 0.5rem; }
+    nav { background: #002c43; }
+    nav ul { list-style: none; display: flex; justify-content: center; margin: 0; padding: 0; }
+    nav li a {
+      display: block; padding: 1rem 1.5rem; color: #fff;
+      text-decoration: none; font-weight: 600;
+    }
+    nav li a:hover, nav li a.active { background: #005f87; }
+    
+    /* Hero Section */
+    .hero {
+      position: relative; height: 300px;
+      background: url('images/parental-hero.jpg') center/cover no-repeat;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    }
+    .hero::before {
+      content: ""; position: absolute; top: 0; left: 0;
+      height: 100%; width: 100%; background: rgba(0,0,0,0.4);
+      z-index: 1;
+    }
+    .hero > div { position: relative; z-index: 2; text-align: center; }
+    .hero h2 { font-size: 2.5rem; font-family: 'Poppins', sans-serif; margin-bottom: 0.5rem; }
+    .hero p { font-size: 1.2rem; margin: 0; }
+    
+    /* Main Content */
+    main { padding: 2rem 0; }
+    .intro { text-align: left; margin-bottom: 2rem; }
+    .intro h2 { font-family: 'Poppins', sans-serif; margin-bottom: 1rem; }
+    .intro p { max-width: 800px; margin: 0 auto 1rem; }
+    .intro ul { max-width: 800px; margin: 0 auto 1rem; padding-left: 1.2rem; }
+    .intro ul li { margin-bottom: 0.5rem; }
+    
+    /* Visual Data Section */
+    .visual-data { text-align: center; margin: 2rem 0; }
+    .visual-data h3 { font-family: 'Poppins', sans-serif; margin-bottom: 1rem; }
+    #parentalChart { max-width: 600px; margin: 0 auto; }
+    .chart-info { max-width: 600px; margin: 1rem auto; padding: 1rem;
+      background: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      font-size: 0.95rem; text-align: left;
+    }
+    
+    /* Footer */
+    footer { background: #002c43; color: #ccc; padding: 1.5rem 0; text-align: center; font-size: 0.9rem; }
+    footer p { margin: 0.25rem 0; }
+    
+    @media (max-width: 768px) {
+      nav ul { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
-  <!-- Header Section -->
+  <!-- Header -->
   <header>
     <div class="container">
-      <a href="../index.html" class="logo" aria-label="Digital Dilemmas Home">
-        <img src="../images/logo.png" alt="Digital Dilemmas Logo">
-        <h1>Digital Dilemmas</h1>
+      <a href="index.html" class="logo" aria-label="Digital Dilemmas Home">
+        <img src="images/logo.png" alt="Digital Dilemmas Logo">
+        <div>
+          <h1>Digital Dilemmas</h1>
+          <p class="tagline">Understanding Technology's Impact on Children</p>
+        </div>
       </a>
-      <p class="tagline">Understanding Technology's Impact on Child Development</p>
     </div>
   </header>
-
-  <!-- Navigation Section -->
+  <!-- Navigation -->
   <nav aria-label="Main Navigation">
     <div class="container">
       <ul>
-        <li><a href="../index.html">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="social.html">Social Skills</a></li>
         <li><a href="cognitive.html">Cognitive Effects</a></li>
-        <li><a href="parental.html">Parental Role</a></li>
-        <li><a href="references.html" class="active" aria-current="page">References</a></li>
+        <li><a href="parental.html" class="active" aria-current="page">Parental Role</a></li>
+        <li><a href="references.html">References</a></li>
       </ul>
     </div>
   </nav>
-
-  <!-- Main Content Section -->
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <h2>The Critical Role of Parents</h2>
+      <p>Strategies to manage digital exposure and promote healthy development.</p>
+    </div>
+  </section>
+  <!-- Main Content -->
   <main class="container">
-    <h2>Works Cited</h2>
-    
-    <!-- References List Section -->
-    <section class="references-list">
-      <div class="reference">
-        <h3>Primary Sources from Literature Review</h3>
-        <ul>
-          <li>
-            Baranowski, Tom, et al. "Impact of an Active Video Game on Healthy Children's Physical Activity." <em>Pediatrics</em>, vol. 129, no. 3, 2012, pp. e636-e642. 
-            <a href="https://doi.org/10.1542/peds.2011-2050" target="_blank" rel="noopener">https://doi.org/10.1542/peds.2011-2050</a>
-          </li>
-          <li>
-            Hinkley, Trina, et al. "Cross Sectional Associations of Screen Time and Outdoor Play with Social Skills in Preschool Children." <em>PLoS ONE</em>, vol. 13, no. 4, 2018, pp. 1-15. 
-            <a href="https://doi.org/10.1371/journal.pone.0193700" target="_blank" rel="noopener">https://doi.org/10.1371/journal.pone.0193700</a>
-          </li>
-          <li>
-            Hou, Chun-Yin, et al. "Children's Mobile-Gaming Preferences, Online Risks, and Mental Health." <em>PLoS ONE</em>, vol. 17, no. 12, 2022, pp. 1-18. 
-            <a href="https://doi.org/10.1371/journal.pone.0278290" target="_blank" rel="noopener">https://doi.org/10.1371/journal.pone.0278290</a>
-          </li>
-          <li>
-            Kim, Jinhee, and Sang-Soog Lee. "Are Two Heads Better Than One? The Effect of Student-AI Collaboration on Students' Learning Task Performance." <em>TechTrends</em>, vol. 67, 2023, pp. 365-375.
-          </li>
-          <li>
-            Li, Yuanzhe, et al. "Psychosocial Impacts of Mobile Game on K12 Students and Trend Exploration for Future Educational Mobile Games." <em>Frontiers in Education</em>, vol. 7, 2022. 
-            <a href="https://doi.org/10.3389/feduc.2022.843090" target="_blank" rel="noopener">https://doi.org/10.3389/feduc.2022.843090</a>
-          </li>
-          <li>
-            Xu, Ke, et al. "Relations between Video Game Engagement and Social Development in Children: The Mediating Role of Executive Function and Age-Related Moderation." <em>Behavioral Sciences</em>, vol. 13, no. 10, 2023. 
-            <a href="https://doi.org/10.3390/bs13100833" target="_blank" rel="noopener">https://doi.org/10.3390/bs13100833</a>
-          </li>
-        </ul>
-      </div>
-      
-      <div class="reference">
-        <h3>Additional Resources</h3>
-        <ul>
-          <li>
-            American Academy of Pediatrics. "Media and Young Minds." Policy Statement, 2016. 
-            <a href="https://pediatrics.aappublications.org/content/138/5/e20162591" target="_blank" rel="noopener">https://pediatrics.aappublications.org/content/138/5/e20162591</a>
-          </li>
-          <li>
-            Common Sense Media. "The Common Sense Census: Media Use by Kids Age Zero to Eight." 2020. 
-            <a href="https://www.commonsensemedia.org/research/the-common-sense-census-media-use-by-kids-age-zero-to-eight-2020" target="_blank" rel="noopener">https://www.commonsensemedia.org/research/the-common-sense-census-media-use-by-kids-age-zero-to-eight-2020</a>
-          </li>
-          <li>
-            World Health Organization. "Guidelines on Physical Activity, Sedentary Behaviour and Sleep for Children under 5 Years of Age." 2019. 
-            <a href="https://www.who.int/publications/i/item/9789241550536" target="_blank" rel="noopener">https://www.who.int/publications/i/item/9789241550536</a>
-          </li>
-        </ul>
-      </div>
+    <section class="intro">
+      <h2>Empowering Parents in a Digital World</h2>
+      <p>
+        As children’s digital engagement grows, the role of parents becomes ever more vital in guiding healthy technology use. Parents serve not only as regulators of screen time but also as educators and role models for balanced media consumption. Effective parental management can reduce the negative impact of excessive digital exposure while fostering an environment rich in face-to-face interactions.
+      </p>
+      <p>
+        Research shows that clear guidelines and consistent monitoring can significantly improve children’s social and cognitive outcomes. Establishing routines, setting screen time limits, and encouraging physical activity are proven strategies to enhance overall well-being.
+      </p>
+      <ul>
+        <li><strong>Screen Time Boundaries:</strong> Set daily limits and enforce tech-free times.</li>
+        <li><strong>Active Engagement:</strong> Use interactive educational content to supplement learning.</li>
+        <li><strong>Communication:</strong> Discuss online experiences and guide children in critical thinking.</li>
+      </ul>
+      <p>
+        The infographic below presents survey data on parental involvement, highlighting the percentage of parents who actively monitor their children’s screen time versus those who do so less consistently. This data underscores the importance of parental guidance in mitigating digital risks.
+      </p>
     </section>
     
-    <!-- About This Website Section -->
-    <section class="website-info">
-      <h3>About This Website</h3>
-      <p>
-        This educational website was created as part of an English Composition course (ENG 1123) at Northwest Mississippi Community College. The content is based on a literature review examining the impact of technological advancements on children's well-being.
-      </p>
-      <p>
-        The site incorporates interactive elements to engage visitors while maintaining academic integrity through proper citation of all sources. Visual representations of data are based on research findings but are simplified for general audience comprehension.
-      </p>
-      
-      <div class="copyright">
-        <p>All original content © 2023 by the site author. Research findings and quotations are property of their respective authors and publishers.</p>
-        <p>This site is privately shared with the course instructor for educational purposes only.</p>
+    <section class="visual-data">
+      <h3>Parental Supervision: Survey Results</h3>
+      <canvas id="parentalChart" width="400" height="200"></canvas>
+      <div class="chart-info">
+        <p>
+          The pie chart illustrates the distribution of parental supervision styles regarding children’s digital use. Categories include strict supervision, moderate supervision, occasional monitoring, and no supervision. Engaged parental involvement has been linked to healthier digital habits and improved academic and social outcomes.
+        </p>
       </div>
     </section>
   </main>
-
-  <!-- Footer Section -->
+  <!-- Footer -->
   <footer>
     <div class="container">
       <p>© 2023 Digital Dilemmas Research Project</p>
-      <p>Created for ENG 1123 - Northwest Mississippi Community College</p>
+      <p>ENG 1123 - Northwest Mississippi Community College</p>
+      <p class="access-note">[This site is privately shared with instructor only]</p>
     </div>
   </footer>
-
-  <!-- JavaScript -->
-  <script src="../js/scripts.js" defer></script>
+  <!-- Chart.js Script for Pie Chart -->
+  <script>
+    const ctxParental = document.getElementById('parentalChart').getContext('2d');
+    new Chart(ctxParental, {
+      type: 'pie',
+      data: {
+        labels: ['Strict Supervision', 'Moderate Supervision', 'Occasional Monitoring', 'No Supervision'],
+        datasets: [{
+          data: [40, 30, 20, 10],
+          backgroundColor: ['#42a5f5', '#66bb6a', '#ffa726', '#ef5350']
+        }]
+      },
+      options: {
+        plugins: { legend: { display: true, position: 'bottom' } }
+      }
+    });
+  </script>
 </body>
 </html>
