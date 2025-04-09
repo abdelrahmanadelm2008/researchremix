@@ -7,17 +7,19 @@
   <meta name="description" content="Digital Dilemmas examines how technology affects child development, including social skills, cognitive effects, and parental roles.">
   <title>Digital Dilemmas | Tech's Impact on Children</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     /* Global Styles */
     * {
       box-sizing: border-box;
+      transition: all 0.3s ease;
     }
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Open Sans', sans-serif;
-      background: #fff;
+      background: #f4f8fb;
       color: #333;
+      line-height: 1.6;
     }
     .container {
       width: 90%;
@@ -25,170 +27,268 @@
       margin: 0 auto;
       padding: 0 1rem;
     }
-
-    /* Header */
+    
+    /* Header & Navigation */
     header {
-      background: #f5f5f5;
-      padding: 1rem 0;
+      background: linear-gradient(135deg, #004d7a, #008793);
+      padding: 2rem 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      color: #fff;
     }
     header .logo {
       display: flex;
       align-items: center;
+      justify-content: center;
       text-decoration: none;
-      color: inherit;
+      color: #fff;
     }
     header .logo img {
       width: 50px;
       margin-right: 1rem;
     }
-    .tagline {
-      font-size: 0.9rem;
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      margin: 0.2rem 0;
+      font-size: 2.5rem;
     }
-
-    /* Navigation */
+    .tagline {
+      font-size: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+      margin-top: 0.5rem;
+    }
     nav {
-      background: #333;
+      background: #002c43;
     }
     nav ul {
       list-style: none;
       display: flex;
-      padding: 0;
+      justify-content: center;
       margin: 0;
+      padding: 0;
     }
-    nav ul li {
-      margin-right: 1rem;
-    }
-    nav ul li a {
+    nav li a {
       display: block;
-      padding: 1rem;
+      padding: 1rem 1.5rem;
       color: #fff;
       text-decoration: none;
+      font-weight: 600;
     }
-    nav ul li a.active,
-    nav ul li a:hover {
-      background: #555;
+    nav li a:hover,
+    nav li a.active {
+      background: #005f87;
     }
-
+    
     /* Hero Section */
     .hero {
       position: relative;
+      height: 400px;
+      background: url('images/home-hero.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+    .hero > div {
+      position: relative;
+      z-index: 2;
       text-align: center;
     }
-    .hero img {
-      width: 100%;
-      height: auto;
-      display: block;
+    .hero h2 {
+      font-size: 2.5rem;
+      font-family: 'Poppins', sans-serif;
+      margin: 0 0 0.5rem;
+      animation: fadeIn 1.5s ease-in;
     }
-    .hero-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #fff;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    .hero p {
+      font-size: 1.2rem;
+      margin: 0;
+      animation: fadeIn 2s ease-in;
     }
-
-    /* Introduction Section */
-    .intro {
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    /* Main Content Sections */
+    section {
       padding: 2rem 0;
     }
+    
+    /* Introduction & Chart Section */
+    .intro {
+      text-align: center;
+    }
+    .intro p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+    /* Chart Canvas Styling */
+    #statsChart {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    /* Chart Information Styling */
+    .chart-info {
+      max-width: 600px;
+      margin: 1rem auto;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      font-size: 0.95rem;
+      color: #555;
+      text-align: left;
+      line-height: 1.4;
+    }
+    
+    /* Stats Grid Cards */
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
     .stat-card {
-      background: #e3e3e3;
-      padding: 1rem;
+      background: #fff;
+      padding: 1.5rem;
       text-align: center;
-      border-radius: 4px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-left: 5px solid #008793;
     }
     .stat-number {
       font-size: 2rem;
-      font-weight: bold;
+      font-weight: 700;
+      color: #008793;
     }
-
+    .stat-label {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+    
+    /* Digital Impact Diagram Section */
+    .infographics {
+      background: #e8f6f9;
+      padding: 2rem 1rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    .infographics h2 {
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 1rem;
+    }
+    .infographics svg {
+      max-width: 100%;
+      height: auto;
+      margin-top: 1rem;
+    }
+    
     /* Explore Topics Section */
-    .explore-topics {
-      padding: 2rem 0;
+    .explore-topics h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-family: 'Poppins', sans-serif;
     }
     .topic-cards {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: space-around;
+      gap: 1.5rem;
+      justify-content: center;
     }
     .topic-card {
-      background: #f0f0f0;
-      border-radius: 4px;
+      background: #fff;
+      border-radius: 8px;
       padding: 1.5rem;
-      flex: 1 1 calc(33% - 1rem);
+      width: calc(33% - 1rem);
+      max-width: 300px;
       text-decoration: none;
-      color: inherit;
-      transition: transform 0.3s ease;
+      color: #333;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .topic-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     }
     .card-icon {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
     }
-
-    /* Quiz Section */
-    .interactive-quiz {
-      padding: 2rem 0;
+    .topic-card h3 {
+      font-family: 'Poppins', sans-serif;
+      margin: 0 0 0.5rem;
+    }
+    .topic-card p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+    
+    /* Interactive Quiz Section */
+    .interactive-quiz h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-family: 'Poppins', sans-serif;
     }
     .quiz-container {
-      background: #f9f9f9;
-      padding: 1rem;
-      border-radius: 4px;
-    }
-    .quiz-question {
-      display: none;
-      margin-bottom: 1rem;
-    }
-    .quiz-question.active {
-      display: block;
+      background: #fff3e0;
+      padding: 1.5rem;
+      border-radius: 8px;
+      max-width: 600px;
+      margin: 1.5rem auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
     }
     .quiz-options {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-top: 1rem;
     }
-    .quiz-option {
-      padding: 0.5rem 1rem;
+    .quiz-options button {
+      padding: 0.75rem 1.5rem;
       border: none;
-      border-radius: 4px;
-      background: #ddd;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-    .quiz-option:hover {
-      background: #ccc;
-    }
-    .quiz-restart {
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 4px;
-      background: #ccc;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-    .quiz-restart:hover {
-      background: #bbb;
-    }
-
-    /* Footer */
-    footer {
-      background: #333;
+      border-radius: 8px;
+      background: #ffa726;
       color: #fff;
-      padding: 1rem 0;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+    }
+    .quiz-options button:hover {
+      background: #fb8c00;
+    }
+    
+    /* Footer Section */
+    footer {
+      background: #002c43;
+      color: #ccc;
+      padding: 1.5rem 0;
       text-align: center;
       font-size: 0.9rem;
     }
-
+    footer p {
+      margin: 0.25rem 0;
+    }
+    
     /* Responsive Design */
     @media (max-width: 768px) {
       nav ul {
@@ -196,6 +296,10 @@
       }
       .topic-cards {
         flex-direction: column;
+        align-items: center;
+      }
+      .topic-card {
+        width: 90%;
       }
     }
   </style>
@@ -204,15 +308,17 @@
   <!-- Header Section -->
   <header>
     <div class="container">
-      <a href="index.html" class="logo">
+      <a href="index.html" class="logo" aria-label="Digital Dilemmas Home">
         <img src="images/logo.png" alt="Digital Dilemmas Logo">
-        <h1>Digital Dilemmas</h1>
+        <div>
+          <h1>Digital Dilemmas</h1>
+          <p class="tagline">Understanding Technology's Impact on Childhood</p>
+        </div>
       </a>
-      <p class="tagline">Understanding Technology's Impact on Child Development</p>
     </div>
   </header>
-
-  <!-- Navigation Section -->
+  
+  <!-- Navigation -->
   <nav aria-label="Main Navigation">
     <div class="container">
       <ul>
@@ -224,122 +330,160 @@
       </ul>
     </div>
   </nav>
-
-  <!-- Main Content Section -->
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <h2>Exploring the Digital Landscape</h2>
+      <p>Screen time, video games, and AI: shaping the next generation</p>
+    </div>
+  </section>
+  
+  <!-- Main Content -->
   <main class="container">
-    <!-- Hero Section -->
-    <section class="hero">
-      <img src="images/home-hero.jpg" alt="Children using technology">
-      <div class="hero-text">
-        <h2>Exploring the Digital Landscape of Childhood</h2>
-        <p>How screen time, video games, and AI are shaping the next generation</p>
-      </div>
-    </section>
-
-    <!-- Introduction Section -->
+    <!-- Introduction & Chart Section -->
     <section class="intro">
-      <p>In today's digital age, children are growing up surrounded by technology. While these advancements offer educational opportunities, they also raise important questions about their impact on children's social skills, cognitive development, and emotional well-being. This website explores the latest research to help parents, educators, and policymakers make informed decisions about technology use in childhood.</p>
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-number">2.1</div>
-          <div class="stat-label">Average hours of daily screen time for preschoolers</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">73%</div>
-          <div class="stat-label">Of parents worry about tech's social impact</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">3.1</div>
-          <div class="stat-label">Hours of recommended outdoor play</div>
-        </div>
+      <p>
+        In today’s digital age, children are constantly surrounded by technology. We explore its impact on social skills, cognitive development, and emotional well-being. Our visual tools and data help guide parents, educators, and policymakers.
+      </p>
+      <canvas id="statsChart" width="400" height="200"></canvas>
+      <!-- Chart Info Section -->
+      <div class="chart-info">
+        <strong>Graph Explanation:</strong>
+        <p>
+          This bar chart displays three key metrics:
+          <em>Screen Time</em> (average hours per day children spend in front of screens), 
+          <em>Parental Concern</em> (the percentage of parents worried about technology’s effects), 
+          and <em>Outdoor Time</em> (recommended daily hours of outdoor play for healthy development).
+          Use this information to compare current digital habits and recommended lifestyles.
+        </p>
       </div>
     </section>
-
-    <!-- Explore Key Topics Section -->
+    
+    <!-- Statistics Grid -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">2.1</div>
+        <div class="stat-label">Hours of screen time</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">73%</div>
+        <div class="stat-label">Parental concern</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">3.1</div>
+        <div class="stat-label">Hours of outdoor play</div>
+      </div>
+    </section>
+    
+    <!-- Digital Impact Diagram Section -->
+    <section class="infographics">
+      <h2>Digital Impact Diagram</h2>
+      <p>Visualizing the connection between screen time, social impact, and cognitive growth.</p>
+      <svg viewBox="0 0 600 300" aria-labelledby="diagramTitle" role="img">
+        <title id="diagramTitle">Digital Impact Diagram showing Screen Time, Social Impact, and Cognitive Growth</title>
+        <!-- Screen Time Node -->
+        <circle cx="150" cy="150" r="50" fill="#008793" />
+        <text x="150" y="150" text-anchor="middle" fill="#fff" font-family="Poppins" font-size="12" dy=".3em">Screen Time</text>
+        <!-- Social Impact Node -->
+        <circle cx="300" cy="100" r="50" fill="#004d7a" />
+        <text x="300" y="100" text-anchor="middle" fill="#fff" font-family="Poppins" font-size="12" dy=".3em">Social Impact</text>
+        <!-- Cognitive Growth Node -->
+        <circle cx="450" cy="150" r="50" fill="#008793"/>
+        <text x="450" y="150" text-anchor="middle" fill="#fff" font-family="Poppins" font-size="12">
+          <tspan x="450" dy="-5">Cognitive</tspan>
+          <tspan x="450" dy="15">Growth</tspan>
+        </text>
+        <!-- Connecting Lines with Arrow Markers -->
+        <defs>
+          <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L9,3 z" fill="#333" />
+          </marker>
+        </defs>
+        <line x1="190" y1="150" x2="260" y2="120" stroke="#333" stroke-width="2" marker-end="url(#arrow)" />
+        <line x1="340" y1="120" x2="410" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrow)" />
+      </svg>
+    </section>
+    
+    <!-- Explore Topics Section -->
     <section class="explore-topics">
       <h2>Explore Key Topics</h2>
       <div class="topic-cards">
-        <a href="social.html" class="topic-card">
+        <a href="social.html" class="topic-card" aria-label="Social Skills">
           <div class="card-icon" aria-hidden="true">👥</div>
           <h3>Social Skills</h3>
-          <p>How technology affects communication and relationship building</p>
+          <p>Communication and relationship building in the digital age</p>
         </a>
-        <a href="cognitive.html" class="topic-card">
+        <a href="cognitive.html" class="topic-card" aria-label="Cognitive Effects">
           <div class="card-icon" aria-hidden="true">🧠</div>
           <h3>Cognitive Effects</h3>
-          <p>Impact on learning, attention, and executive function</p>
+          <p>Impact on attention, learning, and memory</p>
         </a>
-        <a href="parental.html" class="topic-card">
+        <a href="parental.html" class="topic-card" aria-label="Parental Role">
           <div class="card-icon" aria-hidden="true">👪</div>
           <h3>Parental Role</h3>
-          <p>Strategies for healthy technology use in the family</p>
+          <p>Guidance for healthy technology use at home</p>
         </a>
       </div>
     </section>
-
+    
     <!-- Interactive Quiz Section -->
     <section class="interactive-quiz">
       <h2>Quick Quiz: Test Your Knowledge</h2>
+      <!-- First Question -->
       <div class="quiz-container">
-        <div class="quiz-question active" id="q1">
-          <p>What percentage of games contain violent content according to Children Now (2001)?</p>
-          <div class="quiz-options">
-            <button type="button" class="quiz-option" onclick="answerQuestion('q1', false)">25%</button>
-            <button type="button" class="quiz-option" onclick="answerQuestion('q1', false)">50%</button>
-            <button type="button" class="quiz-option" onclick="answerQuestion('q1', true)">89%</button>
-            <button type="button" class="quiz-option" onclick="answerQuestion('q1', false)">67%</button>
-          </div>
+        <p><strong>Q1:</strong> What % of games had violent content in 2001?</p>
+        <div class="quiz-options">
+          <button onclick="checkAnswer(this, false)">25%</button>
+          <button onclick="checkAnswer(this, false)">50%</button>
+          <button onclick="checkAnswer(this, true)">89%</button>
+          <button onclick="checkAnswer(this, false)">67%</button>
         </div>
-        <div class="quiz-question" id="q2">
-          <p>True or False: Outdoor play has been shown to provide more opportunities for social interaction than screen time.</p>
-          <div class="quiz-options">
-            <button type="button" class="quiz-option" onclick="answerQuestion('q2', true)">True</button>
-            <button type="button" class="quiz-option" onclick="answerQuestion('q2', false)">False</button>
-          </div>
-        </div>
-        <div class="quiz-result">
-          <p>You scored <span id="quiz-score">0</span>/2 correct!</p>
-          <button type="button" class="quiz-restart" onclick="restartQuiz()">Try Again</button>
+      </div>
+      <!-- Second Question -->
+      <div class="quiz-container">
+        <p><strong>Q2:</strong> True or False: Outdoor play provides more opportunities for social interaction than screen time.</p>
+        <div class="quiz-options">
+          <button onclick="checkAnswer(this, true)">True</button>
+          <button onclick="checkAnswer(this, false)">False</button>
         </div>
       </div>
     </section>
   </main>
-
+  
   <!-- Footer Section -->
   <footer>
     <div class="container">
       <p>© 2023 Digital Dilemmas Research Project</p>
-      <p>Created for ENG 1123 - Northwest Mississippi Community College</p>
+      <p>ENG 1123 - Northwest Mississippi Community College</p>
       <p class="access-note">[This site is privately shared with instructor only]</p>
     </div>
   </footer>
-
-  <!-- JavaScript for Quiz Functionality -->
+  
+  <!-- JavaScript for Chart.js and Quiz Functionality -->
   <script>
-    let currentScore = 0;
-    let answeredQuestions = {};
-
-    function answerQuestion(questionId, isCorrect) {
-      // Prevent multiple answers for the same question.
-      if (answeredQuestions[questionId]) return;
-      answeredQuestions[questionId] = true;
-      if (isCorrect) {
-        currentScore++;
-        document.getElementById('quiz-score').innerText = currentScore;
+    // Chart.js Statistics
+    const ctx = document.getElementById('statsChart');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Screen Time', 'Parental Concern', 'Outdoor Time'],
+        datasets: [{
+          label: 'Daily Hours / % Concern',
+          data: [2.1, 73, 3.1],
+          backgroundColor: ['#42a5f5', '#66bb6a', '#ffa726']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true } }
       }
-      // Automatically transition from question 1 to question 2
-      if (questionId === 'q1') {
-        document.getElementById('q1').classList.remove('active');
-        document.getElementById('q2').classList.add('active');
-      }
-    }
+    });
 
-    function restartQuiz() {
-      currentScore = 0;
-      answeredQuestions = {};
-      document.getElementById('quiz-score').innerText = currentScore;
-      document.getElementById('q1').classList.add('active');
-      document.getElementById('q2').classList.remove('active');
+    // Quiz functionality: immediate visual feedback
+    function checkAnswer(btn, correct) {
+      btn.style.background = correct ? 'green' : 'red';
     }
   </script>
 </body>
