@@ -9,67 +9,163 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
     /* Common Styles */
-    * { box-sizing: border-box; transition: all 0.3s ease; }
-    body { margin: 0; font-family: 'Open Sans', sans-serif; background: #f4f8fb; color: #333; line-height: 1.6; }
-    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+    * {
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: #f4f8fb;
+      color: #333;
+      line-height: 1.6;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
     
     /* Header & Navigation */
     header {
       background: linear-gradient(135deg, #004d7a, #008793);
       padding: 2rem 1rem;
-      position: sticky; top: 0; z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2); text-align: center; color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      text-align: center;
+      color: #fff;
     }
     header .logo {
-      display: flex; align-items: center; justify-content: center;
-      text-decoration: none; color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #fff;
     }
-    header .logo img { width: 50px; margin-right: 1rem; }
-    header h1 { font-family: 'Poppins', sans-serif; margin: 0.2rem 0; font-size: 2.5rem; }
-    .tagline { font-size: 1rem; font-style: italic; opacity: 0.9; margin-top: 0.5rem; }
-    nav { background: #002c43; }
-    nav ul { list-style: none; display: flex; justify-content: center; margin: 0; padding: 0; }
+    header .logo img {
+      width: 50px;
+      margin-right: 1rem;
+    }
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      margin: 0.2rem 0;
+      font-size: 2.5rem;
+    }
+    .tagline {
+      font-size: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+      margin-top: 0.5rem;
+    }
+    nav {
+      background: #002c43;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+    }
     nav li a {
-      display: block; padding: 1rem 1.5rem; color: #fff;
-      text-decoration: none; font-weight: 600;
+      display: block;
+      padding: 1rem 1.5rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
     }
-    nav li a:hover, nav li a.active { background: #005f87; }
+    nav li a:hover,
+    nav li a.active {
+      background: #005f87;
+    }
     
     /* Hero Section */
     .hero {
-      position: relative; height: 250px;
+      position: relative;
+      height: 250px;
       background: url('images/references-hero.jpg') center/cover no-repeat;
-      display: flex; align-items: center; justify-content: center;
-      color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
     }
     .hero::before {
-      content: ""; position: absolute; top: 0; left: 0;
-      height: 100%; width: 100%; background: rgba(0,0,0,0.4);
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0,0,0,0.4);
       z-index: 1;
     }
-    .hero > div { position: relative; z-index: 2; text-align: center; }
-    .hero h2 { font-size: 2rem; font-family: 'Poppins', sans-serif; margin-bottom: 0.5rem; }
+    .hero > div {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 2rem;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 0.5rem;
+    }
     
     /* Main Content */
-    main { padding: 2rem 0; }
-    .references { max-width: 800px; margin: 0 auto; }
-    .references h2 { font-family: 'Poppins', sans-serif; text-align: center; margin-bottom: 1rem; }
-    .references ul { list-style: decimal inside; padding-left: 1rem; }
-    .references li { margin-bottom: 1rem; font-size: 0.95rem; }
-    .references li a { color: #004d7a; text-decoration: none; }
-    .references li a:hover { text-decoration: underline; }
+    main {
+      padding: 2rem 0;
+    }
+    .references {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .references h2 {
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .references ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .references li {
+      padding-left: 0.5in;
+      text-indent: -0.5in;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .references li a {
+      color: #004d7a;
+      text-decoration: none;
+    }
+    .references li a:hover {
+      text-decoration: underline;
+    }
     
     /* Footer */
-    footer { background: #002c43; color: #ccc; padding: 1.5rem 0; text-align: center; font-size: 0.9rem; }
-    footer p { margin: 0.25rem 0; }
+    footer {
+      background: #002c43;
+      color: #ccc;
+      padding: 1.5rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer p {
+      margin: 0.25rem 0;
+    }
     
     @media (max-width: 768px) {
-      nav ul { flex-direction: column; }
+      nav ul {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
+  <!-- Header Section -->
   <header>
     <div class="container">
       <a href="index.html" class="logo" aria-label="Digital Dilemmas Home">
@@ -105,34 +201,27 @@
       <h2>References</h2>
       <ul>
         <li>
-          Hou, C.-Y., Rutherford, R., Chang, H., Chang, F.-C., Shumei, L., Chiu, C.-H., et al. (2022). 
-          <em>Children’s mobile-gaming preferences, online risks, and mental health</em>. PLOS ONE, 17(12), e0278290. 
-          <a href="https://doi.org/10.1371/journal.pone.0278290" target="_blank">https://doi.org/10.1371/journal.pone.0278290</a>
+          Baranowski, Tom, et al. “Impact of an active video game on healthy children's physical activity.” Pediatrics, vol. 129, no. 3, 2012, pp. e636-e642, <a href="https://doi.org/10.1542/peds.2011-2050" target="_blank">https://doi.org/10.1542/peds.2011-2050</a>.
         </li>
         <li>
-          Hinkley, T., Brown, H., Carson, V., & Teychenne, M. (2018). 
-          <em>Cross-sectional associations of screen time and outdoor play with social skills in preschool children</em>. PLOS ONE, 13(4), e0193700. 
-          <a href="https://doi.org/10.1371/journal.pone.0193700" target="_blank">https://doi.org/10.1371/journal.pone.0193700</a>
+          Hinkley, Trina, et al. “Cross Sectional Associations of Screen Time and Outdoor Play with Social Skills in Preschool Children.” PLoS ONE, vol. 13, no. 4, Apr. 2018, pp. 1–15, EBSCOhost, <a href="https://doi.org/10.1371/journal.pone.0193700" target="_blank">https://doi.org/10.1371/journal.pone.0193700</a>.
         </li>
         <li>
-          Baranowski, T., Abdelsamad, D., Baranowski, J., O’Connor, T. M., Thompson, D., Barnett, A., et al. (2012). 
-          <em>Impact of an Active Video Game on Healthy Children’s Physical Activity</em>. Pediatrics, 129, e636–e642. 
-          <a href="https://doi.org/10.1542/peds.2011-2050" target="_blank">https://doi.org/10.1542/peds.2011-2050</a>
+          Hou, Chun-Yin, et al. “Children’s Mobile-Gaming Preferences, Online Risks, and Mental Health.” PLoS ONE, vol. 17, no. 12, Dec. 2022, pp. 1–18, EBSCOhost, <a href="https://doi.org/10.1371/journal.pone.0278290" target="_blank">https://doi.org/10.1371/journal.pone.0278290</a>.
         </li>
         <li>
-          Li, Y., Xu, Z., Hao, Y., Xiao, P., & Liu, J. (2022). 
-          <em>Psychosocial Impacts of Mobile Game on K12 Students and Trend Exploration for Future Educational Mobile Games</em>. Frontiers in Education, 7, 843090. 
-          <a href="https://doi.org/10.3389/feduc.2022.843090" target="_blank">https://doi.org/10.3389/feduc.2022.843090</a>
+          Kim, Jinhee, and Sang-Soog Lee. “Are Two Heads Better Than One? The Effect of Student-AI Collaboration on Students’ Learning Task Performance.” TechTrends, vol. 67, 2023, pp. 365–375.
         </li>
         <li>
-          Xu, K., Geng, S., Dou, D., & Liu, X. (2023). 
-          <em>Relations between Video Game Engagement and Social Development in Children: The Mediating Role of Executive Function and Age-Related Moderation</em>. Behavioral Sciences, 13, 833. 
-          <a href="https://doi.org/10.3390/bs13100833" target="_blank">https://doi.org/10.3390/bs13100833</a>
+          Li, Yuanzhe, et al. “Psychosocial Impacts of Mobile Game on K12 Students and Trend Exploration for Future Educational Mobile Games.” Frontiers in Education, vol. 7, no. 29, Apr. 2022, <a href="https://doi.org/10.3389/feduc.2022.843090" target="_blank">https://doi.org/10.3389/feduc.2022.843090</a>.
+        </li>
+        <li>
+          Xu, Ke, et al. "Relations between Video Game Engagement and Social Development in Children: The Mediating Role of Executive Function and Age-Related Moderation." Behavioral Sciences, vol. 13, no. 10, 2023, pp. 833, ProQuest, doi:<a href="https://doi.org/10.3390/bs13100833" target="_blank">https://doi.org/10.3390/bs13100833</a>.
         </li>
       </ul>
     </section>
   </main>
-  <!-- Footer -->
+  <!-- Footer Section -->
   <footer>
     <div class="container">
       <p>© 2023 Digital Dilemmas Research Project</p>
