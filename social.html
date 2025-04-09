@@ -4,27 +4,91 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore the impact of technology on social skills in children. Learn how screen time and outdoor play influence face-to-face interactions and social behaviors.">
-  <title>Social Skills Impact | Digital Dilemmas</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <meta name="description" content="Digital Dilemmas explores how screen time and video game engagement impact social skills in children.">
+  <title>Digital Dilemmas | Social Skills</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* Common Styles */
+    * { box-sizing: border-box; transition: all 0.3s ease; }
+    body { margin: 0; font-family: 'Open Sans', sans-serif; background: #f4f8fb; color: #333; line-height: 1.6; }
+    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+    
+    /* Header & Navigation */
+    header {
+      background: linear-gradient(135deg, #004d7a, #008793);
+      padding: 2rem 1rem; position: sticky; top: 0; z-index: 1000; 
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2); text-align: center; color: #fff;
+    }
+    header .logo {
+      display: flex; align-items: center; justify-content: center; text-decoration: none; color: #fff;
+    }
+    header .logo img { width: 50px; margin-right: 1rem; }
+    header h1 { font-family: 'Poppins', sans-serif; margin: 0.2rem 0; font-size: 2.5rem; }
+    .tagline { font-size: 1rem; font-style: italic; opacity: 0.9; margin-top: 0.5rem; }
+    nav { background: #002c43; }
+    nav ul { list-style: none; display: flex; justify-content: center; margin: 0; padding: 0; }
+    nav li a {
+      display: block; padding: 1rem 1.5rem; color: #fff; text-decoration: none; font-weight: 600;
+    }
+    nav li a:hover, nav li a.active { background: #005f87; }
+    
+    /* Hero Section */
+    .hero {
+      position: relative; height: 300px;
+      background: url('images/social-hero.jpg') center/cover no-repeat;
+      display: flex; align-items: center; justify-content: center; color: #fff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    }
+    .hero::before {
+      content: ""; position: absolute; top: 0; left: 0; height: 100%; width: 100%;
+      background: rgba(0, 0, 0, 0.4); z-index: 1;
+    }
+    .hero > div { position: relative; z-index: 2; text-align: center; }
+    .hero h2 { font-size: 2.5rem; font-family: 'Poppins', sans-serif; margin-bottom: 0.5rem; }
+    .hero p { font-size: 1.2rem; margin: 0; }
+    
+    /* Main Content */
+    main { padding: 2rem 0; }
+    .intro { text-align: left; margin-bottom: 2rem; }
+    .intro h2 { font-family: 'Poppins', sans-serif; margin-bottom: 1rem; }
+    .intro p { max-width: 800px; margin: 0 auto 1rem; }
+    .intro ul { max-width: 800px; margin: 0 auto 1rem; padding-left: 1.2rem; }
+    .intro ul li { margin-bottom: 0.5rem; }
+    
+    /* Visual Data Section */
+    .visual-data { text-align: center; margin: 2rem 0; }
+    .visual-data h3 { font-family: 'Poppins', sans-serif; margin-bottom: 1rem; }
+    #socialChart { max-width: 600px; margin: 0 auto; }
+    .chart-info { max-width: 600px; margin: 1rem auto; padding: 1rem; background: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); font-size: 0.95rem; text-align: left; }
+    
+    /* Footer */
+    footer { background: #002c43; color: #ccc; padding: 1.5rem 0; text-align: center; font-size: 0.9rem; }
+    footer p { margin: 0.25rem 0; }
+    
+    @media (max-width: 768px) {
+      nav ul { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
   <!-- Header Section -->
   <header>
     <div class="container">
-      <a href="../index.html" class="logo" aria-label="Digital Dilemmas Home">
-        <img src="../images/logo.png" alt="Digital Dilemmas Logo">
-        <h1>Digital Dilemmas</h1>
+      <a href="index.html" class="logo" aria-label="Digital Dilemmas Home">
+        <img src="images/logo.png" alt="Digital Dilemmas Logo">
+        <div>
+          <h1>Digital Dilemmas</h1>
+          <p class="tagline">Understanding Technology's Impact on Children</p>
+        </div>
       </a>
-      <p class="tagline">Understanding Technology's Impact on Child Development</p>
     </div>
   </header>
-
-  <!-- Navigation Section -->
+  <!-- Navigation -->
   <nav aria-label="Main Navigation">
     <div class="container">
       <ul>
-        <li><a href="../index.html">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="social.html" class="active" aria-current="page">Social Skills</a></li>
         <li><a href="cognitive.html">Cognitive Effects</a></li>
         <li><a href="parental.html">Parental Role</a></li>
@@ -32,95 +96,70 @@
       </ul>
     </div>
   </nav>
-
-  <!-- Main Content Section -->
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <h2>The Impact on Social Skills</h2>
+      <p>Exploring the effects of technology and screen time on children's ability to interact.</p>
+    </div>
+  </section>
+  <!-- Main Content -->
   <main class="container">
-    <h2>Technology's Impact on Social Skills</h2>
+    <section class="intro">
+      <h2>How Digital Exposure Influences Social Interaction</h2>
+      <p>
+        Contemporary research indicates that excessive screen time and digital gaming may reduce opportunities for face-to-face interactions, potentially impairing the development of social skills. For instance, studies (e.g., Hinkley et al.) show that higher television and digital media exposure can correlate with reduced verbal communication and cooperative play in preschool children.
+      </p>
+      <p>
+        Additionally, differences in engagement modes—such as solitary versus multiplayer gaming—have varying impacts. Multiplayer gaming may foster teamwork but can also encourage online aggression if negative behaviors are reinforced. The delicate balance between healthy digital engagement and screen-induced social isolation remains a critical topic of discussion.
+      </p>
+      <ul>
+        <li><strong>Key Points:</strong> Limited face-to-face interaction, reduced emotional expression, challenges with empathy.</li>
+        <li><strong>Opportunities:</strong> Structured outdoor play and guided digital interactions can mitigate adverse effects.</li>
+      </ul>
+      <p>
+        Thus, this page examines how digital environments affect social development and outlines strategies to improve social skills through moderated digital consumption and increased real-world interaction. Interactive charts below summarize sample data on screen time and social skill ratings.
+      </p>
+    </section>
     
-    <!-- Content Section -->
-    <section class="content-section">
-      <div class="text-content">
+    <section class="visual-data">
+      <h3>Screen Time vs. Social Skills</h3>
+      <canvas id="socialChart" width="400" height="200"></canvas>
+      <div class="chart-info">
         <p>
-          Research shows that excessive screen time, particularly television viewing, is associated with poorer social skills in children. A study by Hinkley et al. (2018) found that television/DVD/video viewing negatively affects children's social skills, while outdoor play time was positively associated with both expressive and compliant social behaviors.
+          This chart displays sample data illustrating the inverse relationship between daily screen time (in hours) and social skill ratings (as measured by standardized scales) among preschoolers. It highlights research findings that indicate less screen time correlates with improved social interactions.
         </p>
-        <p>Key findings from the literature:</p>
-        <ul>
-          <li>Children who spend more time with screens have fewer opportunities for face-to-face interactions</li>
-          <li>Violent game content can lead to increased aggression and reduced empathy</li>
-          <li>Outdoor play provides more opportunities for conversation, cooperation, and conflict resolution</li>
-          <li>Girls tend to score higher on social skills measures than boys</li>
-        </ul>
-      </div>
-      
-      <div class="visual-content">
-        <svg width="400" height="300" viewBox="0 0 400 300" class="social-skills-chart" role="img" aria-labelledby="socialChartTitle">
-          <title id="socialChartTitle">Social Skills Comparison Chart</title>
-          <!-- Background Container -->
-          <rect x="50" y="50" width="300" height="200" fill="#f5f5f5" rx="10" ry="10"></rect>
-          <text x="200" y="80" text-anchor="middle" font-size="16" font-weight="bold">Social Skills Comparison</text>
-          
-          <!-- TV Viewing Bar -->
-          <rect x="100" y="120" width="80" height="80" fill="#ff6b6b"></rect>
-          <text x="140" y="220" text-anchor="middle">TV Viewing</text>
-          <text x="140" y="110" text-anchor="middle">-35%</text>
-          
-          <!-- Outdoor Play Bar -->
-          <rect x="220" y="160" width="80" height="40" fill="#4ecdc4"></rect>
-          <text x="260" y="220" text-anchor="middle">Outdoor Play</text>
-          <text x="260" y="150" text-anchor="middle">+22%</text>
-          
-          <!-- Baseline and Label -->
-          <line x1="50" y1="250" x2="350" y2="250" stroke="#333" stroke-width="2"></line>
-          <text x="200" y="280" text-anchor="middle">Impact on Compliant Social Skills</text>
-        </svg>
-      </div>
-    </section>
-
-    <!-- Interactive Scenario Section -->
-    <section class="interactive-section">
-      <h3>How Does This Affect Real Life?</h3>
-      <div class="scenario-container">
-        <div class="scenario">
-          <p>
-            8-year-old Alex spends 4 hours daily watching YouTube and playing mobile games. At school, Alex often:
-          </p>
-          <div class="scenario-options">
-            <button class="scenario-option" data-correct="true">Struggles to cooperate in group activities</button>
-            <button class="scenario-option">Seeks out new friends easily</button>
-            <button class="scenario-option">Prefers reading books to socializing</button>
-          </div>
-          <div class="scenario-feedback">
-            <p>Correct! Research shows excessive screen time is associated with poorer cooperation skills.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Research Highlights Section -->
-    <section class="research-highlights">
-      <h3>Research Highlights</h3>
-      <div class="highlight-cards">
-        <div class="highlight-card">
-          <h4>Hinkley et al. (2018)</h4>
-          <p>"Television/DVD/video viewing was inversely associated with compliant scores (B = -0.35) and outdoor play time was positively associated with both expressive (B = 0.20) and compliant (B = 0.22) scores."</p>
-        </div>
-        <div class="highlight-card">
-          <h4>Li et al. (2022)</h4>
-          <p>"Violent mobile games often portray the grandeur of gangsters and triad bosses, which can lead to the normalization of aggressive behavior and a distorted moral framework."</p>
-        </div>
       </div>
     </section>
   </main>
-
-  <!-- Footer Section -->
+  <!-- Footer -->
   <footer>
     <div class="container">
       <p>© 2023 Digital Dilemmas Research Project</p>
-      <p>Created for ENG 1123 - Northwest Mississippi Community College</p>
+      <p>ENG 1123 - Northwest Mississippi Community College</p>
+      <p class="access-note">[This site is privately shared with instructor only]</p>
     </div>
   </footer>
-
-  <!-- JavaScript -->
-  <script src="../js/scripts.js" defer></script>
+  <!-- Chart.js Script -->
+  <script>
+    const ctx = document.getElementById('socialChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['1 hr', '2 hrs', '3 hrs', '4 hrs'],
+        datasets: [{
+          label: 'Social Skill Rating',
+          data: [85, 75, 60, 50],
+          backgroundColor: ['#42a5f5', '#42a5f5', '#42a5f5', '#42a5f5']
+        }]
+      },
+      options: {
+        scales: {
+          y: { beginAtZero: true, max: 100 }
+        },
+        plugins: { legend: { display: false } }
+      }
+    });
+  </script>
 </body>
 </html>
