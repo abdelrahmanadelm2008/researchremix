@@ -1,4 +1,6 @@
-/* Base Styles & CSS Variables */
+/* =======================================
+   CSS Variables & Base Resets
+========================================== */
 :root {
   --primary-color: #4a6fa5;
   --secondary-color: #166088;
@@ -25,7 +27,9 @@ body {
   font-size: 16px;
 }
 
-/* Headings */
+/* =======================================
+   Typography & Links
+========================================== */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
@@ -37,7 +41,6 @@ p {
   margin-bottom: 1rem;
 }
 
-/* Links */
 a {
   text-decoration: none;
   color: var(--primary-color);
@@ -48,7 +51,9 @@ a:hover {
   color: var(--secondary-color);
 }
 
-/* Container */
+/* =======================================
+   Utility Container
+========================================== */
 .container {
   width: 100%;
   max-width: var(--max-width);
@@ -56,7 +61,9 @@ a:hover {
   padding: 0 20px;
 }
 
-/* Header */
+/* =======================================
+   Header Section
+========================================== */
 header {
   background-color: var(--primary-color);
   color: white;
@@ -64,14 +71,14 @@ header {
   text-align: center;
 }
 
-.logo {
+header .logo {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 0.5rem;
 }
 
-.logo img {
+header .logo img {
   height: 40px;
   margin-right: 15px;
 }
@@ -82,7 +89,9 @@ header {
   opacity: 0.9;
 }
 
-/* Navigation */
+/* =======================================
+   Navigation
+========================================== */
 nav {
   background-color: var(--dark-color);
   padding: 0.75rem 0;
@@ -113,12 +122,9 @@ nav a.active {
   background-color: var(--primary-color);
 }
 
-/* Main Content */
-main {
-  padding: 2rem 0;
-}
-
-/* Hero Section */
+/* =======================================
+   Hero Section (for Index and other pages)
+========================================== */
 .hero {
   position: relative;
   margin-bottom: 2rem;
@@ -147,7 +153,41 @@ main {
   font-size: 1.8rem;
 }
 
-/* Stats Grid */
+/* =======================================
+   Main Content Area
+========================================== */
+main {
+  padding: 2rem 0;
+}
+
+/* Content Sections with Flex/Grid Layout */
+.content-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.text-content {
+  flex: 1 1 300px;
+}
+
+.visual-content {
+  flex: 1 1 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* SVG & Chart Styling */
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* =======================================
+   Stats & Cards (e.g., in Index or interactive areas)
+========================================== */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -163,33 +203,7 @@ main {
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* Content Sections */
-.content-section {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.text-content {
-  flex: 1 1 300px;
-}
-
-/* Visual Content for Diagrams, Charts, & Interactive Elements */
-.visual-content {
-  flex: 1 1 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* SVG Chart Styles */
-.social-skills-chart {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Interactive Sections */
+/* Interactive & Tabbed Elements */
 .interactive-section {
   margin: 2rem 0;
   padding: 1rem;
@@ -198,23 +212,21 @@ main {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
+/* Scenario-Based Interactions */
 .scenario-container {
   margin-top: 1rem;
 }
-
 .scenario {
   padding: 1rem;
   border: 1px solid var(--dark-color);
   border-radius: 8px;
 }
-
 .scenario-options {
   margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
-
 .scenario-option {
   flex: 1;
   padding: 0.75rem 1rem;
@@ -225,11 +237,9 @@ main {
   cursor: pointer;
   transition: background-color 0.3s;
 }
-
 .scenario-option:hover {
   background-color: var(--secondary-color);
 }
-
 .scenario-feedback {
   margin-top: 1rem;
   background: #e9f7ef;
@@ -239,17 +249,15 @@ main {
   border: 1px solid var(--accent-color);
 }
 
-/* Tab & Quiz Related Styles (for interactive quiz and tabbed components) */
+/* Tabs & Quiz Styles */
 .tab-container {
   margin: 2rem 0;
 }
-
 .tab-buttons {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1rem;
 }
-
 .tab-button {
   padding: 0.75rem 1rem;
   border: none;
@@ -259,17 +267,14 @@ main {
   font-weight: 600;
   transition: background-color 0.3s;
 }
-
 .tab-button.active {
   background-color: var(--primary-color);
   color: white;
 }
-
 .tab-button:hover {
   background-color: var(--secondary-color);
   color: white;
 }
-
 .tab-content {
   display: none;
   padding: 1rem;
@@ -277,20 +282,18 @@ main {
   border-radius: 4px;
   background-color: #fff;
 }
-
 .tab-content.active {
   display: block;
 }
 
-/* Strategy Cards (in Parental Role page) */
-.strategy-cards {
+/* Strategy & Research Cards (for Parental and Reference pages) */
+.strategy-cards, .highlight-cards {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 1rem;
 }
-
-.strategy-card {
+.strategy-card, .highlight-card {
   flex: 1;
   min-width: 250px;
   background-color: var(--light-color);
@@ -299,19 +302,17 @@ main {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Parenting Scale */
+/* Parenting Scale (for Parental Role page) */
 .parenting-scale {
   margin-top: 2rem;
   text-align: center;
 }
-
 .scale-container {
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin-top: 1rem;
 }
-
 .scale-point {
   flex: 1;
   padding: 1rem;
@@ -320,44 +321,22 @@ main {
   background-color: var(--light-color);
   transition: background 0.3s;
 }
-
 .scale-point.active {
   background-color: var(--accent-color);
   color: white;
 }
-
 .scale-point h5 {
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
 }
-
 .scale-pros-cons {
   margin-top: 0.5rem;
   font-size: 0.9rem;
 }
 
-/* Research Highlights */
-.research-highlights {
-  margin-top: 2rem;
-}
-
-.highlight-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.highlight-card {
-  flex: 1;
-  min-width: 250px;
-  background-color: var(--light-color);
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-/* Footer */
+/* =======================================
+   Footer
+========================================== */
 footer {
   background-color: var(--dark-color);
   color: white;
@@ -366,7 +345,9 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Responsive Design */
+/* =======================================
+   Responsive Design
+========================================== */
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
