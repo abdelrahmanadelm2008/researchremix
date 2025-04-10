@@ -10,18 +10,18 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     /* Common Styles */
-    * {
+    * { 
       box-sizing: border-box;
       transition: all 0.3s ease;
     }
-    body {
+    body { 
       margin: 0;
       font-family: 'Open Sans', sans-serif;
       background: #f4f8fb;
       color: #333;
       line-height: 1.6;
     }
-    .container {
+    .container { 
       width: 90%;
       max-width: 1200px;
       margin: 0 auto;
@@ -43,12 +43,12 @@
     header .header-text {
       text-align: center;
     }
-    header h1 {
+    header h1 { 
       font-family: 'Poppins', sans-serif;
       margin: 0.2rem 0;
       font-size: 2.5rem;
     }
-    .tagline {
+    .tagline { 
       font-size: 1rem;
       font-style: italic;
       opacity: 0.9;
@@ -76,35 +76,29 @@
       background: #005f87;
     }
     
-    /* Hero Section using parental.jpg as background with full image visible */
+    /* Hero Section using parental.jpg as full background without empty space */
     .hero {
       position: relative;
       height: 300px;
-      background-color: #004d7a; /* fallback color */
-      overflow: hidden;
-    }
-    .hero img.bg-image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain; /* ensures the entire image is shown without cropping */
-      z-index: 0;
-    }
-    .hero .hero-text {
-      position: relative;
-      z-index: 1;
-      text-align: center;
+      background: url('parental.jpg') center/cover no-repeat;
+      /* Using cover to ensure the image fills the entire hero section even if parts are cropped */
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: #fff;
       padding: 1rem;
     }
-    .hero .hero-text h2 {
+    .hero > div {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    .hero h2 {
       font-size: 2.5rem;
       font-family: 'Poppins', sans-serif;
       margin-bottom: 0.5rem;
     }
-    .hero .hero-text p {
+    .hero p {
       font-size: 1.2rem;
       margin: 0;
     }
@@ -171,8 +165,8 @@
     }
     
     @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
+      nav ul { 
+        flex-direction: column; 
       }
     }
   </style>
@@ -203,7 +197,6 @@
   
   <!-- Hero Section using parental.jpg as full background -->
   <section class="hero">
-    <img class="bg-image" src="parental.jpg" alt="Parental guidance image">
     <div class="hero-text">
       <h2>The Critical Role of Parents</h2>
       <p>Strategies to manage digital exposure and promote healthy development.</p>
