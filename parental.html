@@ -10,88 +10,182 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     /* Common Styles */
-    * { box-sizing: border-box; transition: all 0.3s ease; }
-    body { margin: 0; font-family: 'Open Sans', sans-serif; background: #f4f8fb; color: #333; line-height: 1.6; }
-    .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+    * { 
+      box-sizing: border-box; 
+      transition: all 0.3s ease; 
+    }
+    body { 
+      margin: 0; 
+      font-family: 'Open Sans', sans-serif; 
+      background: #f4f8fb; 
+      color: #333; 
+      line-height: 1.6; 
+    }
+    .container { 
+      width: 90%; 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      padding: 0 1rem; 
+    }
     
     /* Header & Navigation */
     header {
       background: linear-gradient(135deg, #004d7a, #008793);
       padding: 2rem 1rem;
-      position: sticky; top: 0; z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2); text-align: center; color: #fff;
+      position: sticky; 
+      top: 0; 
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      text-align: center;
+      color: #fff;
     }
-    header .logo {
-      display: flex; align-items: center; justify-content: center;
-      text-decoration: none; color: #fff;
+    /* Header now displays text only (logo removed) */
+    header .header-text {
+      text-align: center;
     }
-    header .logo img { width: 50px; margin-right: 1rem; }
-    header h1 { font-family: 'Poppins', sans-serif; margin: 0.2rem 0; font-size: 2.5rem; }
-    .tagline { font-size: 1rem; font-style: italic; opacity: 0.9; margin-top: 0.5rem; }
-    nav { background: #002c43; }
-    nav ul { list-style: none; display: flex; justify-content: center; margin: 0; padding: 0; }
+    header h1 { 
+      font-family: 'Poppins', sans-serif; 
+      margin: 0.2rem 0; 
+      font-size: 2.5rem; 
+    }
+    .tagline { 
+      font-size: 1rem; 
+      font-style: italic; 
+      opacity: 0.9; 
+      margin-top: 0.5rem; 
+    }
+    nav {
+      background: #002c43;
+    }
+    nav ul { 
+      list-style: none; 
+      display: flex; 
+      justify-content: center; 
+      margin: 0; 
+      padding: 0; 
+    }
     nav li a {
-      display: block; padding: 1rem 1.5rem; color: #fff;
-      text-decoration: none; font-weight: 600;
+      display: block; 
+      padding: 1rem 1.5rem; 
+      color: #fff; 
+      text-decoration: none; 
+      font-weight: 600; 
     }
-    nav li a:hover, nav li a.active { background: #005f87; }
+    nav li a:hover,
+    nav li a.active { 
+      background: #005f87; 
+    }
     
-    /* Hero Section */
+    /* Hero Section using parental.jpg as full background without overlay */
     .hero {
-      position: relative; height: 300px;
-      background: url('images/parental-hero.jpg') center/cover no-repeat;
-      display: flex; align-items: center; justify-content: center;
-      color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+      position: relative;
+      height: 300px;
+      /* Use parental.jpg as background with contain to display the entire image */
+      background: url('parental.jpg') center/contain no-repeat;
+      /* Optional: set a background color to fill any empty space */
+      background-color: #004d7a;
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      color: #fff;
+      /* No pseudo-element overlay, so the entire image shows without cutting parts */
+      padding: 1rem;
     }
-    .hero::before {
-      content: ""; position: absolute; top: 0; left: 0;
-      height: 100%; width: 100%; background: rgba(0,0,0,0.4);
-      z-index: 1;
+    .hero > div { 
+      position: relative; 
+      z-index: 1; 
+      text-align: center; 
     }
-    .hero > div { position: relative; z-index: 2; text-align: center; }
-    .hero h2 { font-size: 2.5rem; font-family: 'Poppins', sans-serif; margin-bottom: 0.5rem; }
-    .hero p { font-size: 1.2rem; margin: 0; }
+    .hero h2 { 
+      font-size: 2.5rem; 
+      font-family: 'Poppins', sans-serif; 
+      margin-bottom: 0.5rem; 
+    }
+    .hero p { 
+      font-size: 1.2rem; 
+      margin: 0; 
+    }
     
     /* Main Content */
-    main { padding: 2rem 0; }
-    .intro { text-align: left; margin-bottom: 2rem; }
-    .intro h2 { font-family: 'Poppins', sans-serif; margin-bottom: 1rem; }
-    .intro p { max-width: 800px; margin: 0 auto 1rem; }
-    .intro ul { max-width: 800px; margin: 0 auto 1rem; padding-left: 1.2rem; }
-    .intro ul li { margin-bottom: 0.5rem; }
+    main { 
+      padding: 2rem 0; 
+    }
+    .intro { 
+      text-align: left; 
+      margin-bottom: 2rem; 
+    }
+    .intro h2 { 
+      font-family: 'Poppins', sans-serif; 
+      margin-bottom: 1rem; 
+    }
+    .intro p { 
+      max-width: 800px; 
+      margin: 0 auto 1rem; 
+    }
+    .intro ul { 
+      max-width: 800px; 
+      margin: 0 auto 1rem; 
+      padding-left: 1.2rem; 
+    }
+    .intro ul li { 
+      margin-bottom: 0.5rem; 
+    }
     
     /* Visual Data Section */
-    .visual-data { text-align: center; margin: 2rem 0; }
-    .visual-data h3 { font-family: 'Poppins', sans-serif; margin-bottom: 1rem; }
-    #parentalChart { max-width: 600px; margin: 0 auto; }
-    .chart-info { max-width: 600px; margin: 1rem auto; padding: 1rem;
-      background: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      font-size: 0.95rem; text-align: left;
+    .visual-data { 
+      text-align: center; 
+      margin: 2rem 0; 
+    }
+    .visual-data h3 { 
+      font-family: 'Poppins', sans-serif; 
+      margin-bottom: 1rem; 
+    }
+    #parentalChart { 
+      max-width: 600px; 
+      margin: 0 auto; 
+    }
+    .chart-info { 
+      max-width: 600px; 
+      margin: 1rem auto; 
+      padding: 1rem;
+      background: #fff; 
+      border-radius: 8px; 
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      font-size: 0.95rem; 
+      text-align: left;
     }
     
     /* Footer */
-    footer { background: #002c43; color: #ccc; padding: 1.5rem 0; text-align: center; font-size: 0.9rem; }
-    footer p { margin: 0.25rem 0; }
+    footer { 
+      background: #002c43; 
+      color: #ccc; 
+      padding: 1.5rem 0; 
+      text-align: center; 
+      font-size: 0.9rem; 
+    }
+    footer p { 
+      margin: 0.25rem 0; 
+    }
     
     @media (max-width: 768px) {
-      nav ul { flex-direction: column; }
+      nav ul { 
+        flex-direction: column; 
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
+  <!-- Header Section (Text Only, No Logo) -->
   <header>
     <div class="container">
-      <a href="index.html" class="logo" aria-label="Digital Dilemmas Home">
-        <img src="images/logo.png" alt="Digital Dilemmas Logo">
-        <div>
-          <h1>Digital Dilemmas</h1>
-          <p class="tagline">Understanding Technology's Impact on Children</p>
-        </div>
-      </a>
+      <div class="header-text">
+        <h1>Digital Dilemmas</h1>
+        <p class="tagline">Understanding Technology's Impact on Children</p>
+      </div>
     </div>
   </header>
-  <!-- Navigation -->
+  
+  <!-- Navigation Section -->
   <nav aria-label="Main Navigation">
     <div class="container">
       <ul>
@@ -103,14 +197,16 @@
       </ul>
     </div>
   </nav>
-  <!-- Hero Section -->
+  
+  <!-- Hero Section using parental.jpg as background, fully visible -->
   <section class="hero">
     <div>
       <h2>The Critical Role of Parents</h2>
       <p>Strategies to manage digital exposure and promote healthy development.</p>
     </div>
   </section>
-  <!-- Main Content -->
+  
+  <!-- Main Content Section -->
   <main class="container">
     <section class="intro">
       <h2>Empowering Parents in a Digital World</h2>
@@ -140,7 +236,8 @@
       </div>
     </section>
   </main>
-  <!-- Footer -->
+  
+  <!-- Footer Section -->
   <footer>
     <div class="container">
       <p>© 2023 Digital Dilemmas Research Project</p>
@@ -148,7 +245,8 @@
       <p class="access-note">[This site is privately shared with instructor only]</p>
     </div>
   </footer>
-  <!-- Chart.js Script for Pie Chart -->
+  
+  <!-- Chart.js Script for Parental Survey Pie Chart -->
   <script>
     const ctxParental = document.getElementById('parentalChart').getContext('2d');
     new Chart(ctxParental, {
