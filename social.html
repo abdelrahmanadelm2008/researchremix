@@ -31,96 +31,77 @@
     /* Header & Navigation */
     header {
       background: linear-gradient(135deg, #004d7a, #008793);
-      padding: 2rem 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      text-align: center;
+      padding: 2rem 1rem; 
+      position: sticky; 
+      top: 0; 
+      z-index: 1000; 
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2); 
+      text-align: center; 
       color: #fff;
     }
-    /* Removed logo image; only text remains */
+    /* Header now shows text only (logo removed) */
     header .header-text {
       text-align: center;
     }
-    header h1 {
-      font-family: 'Poppins', sans-serif;
-      margin: 0.2rem 0;
-      font-size: 2.5rem;
+    header h1 { 
+      font-family: 'Poppins', sans-serif; 
+      margin: 0.2rem 0; 
+      font-size: 2.5rem; 
     }
-    .tagline {
-      font-size: 1rem;
-      font-style: italic;
-      opacity: 0.9;
-      margin-top: 0.5rem;
+    .tagline { 
+      font-size: 1rem; 
+      font-style: italic; 
+      opacity: 0.9; 
+      margin-top: 0.5rem; 
     }
-    nav {
-      background: #002c43;
+    nav { 
+      background: #002c43; 
     }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      margin: 0;
-      padding: 0;
+    nav ul { 
+      list-style: none; 
+      display: flex; 
+      justify-content: center; 
+      margin: 0; 
+      padding: 0; 
     }
     nav li a {
-      display: block;
-      padding: 1rem 1.5rem;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
+      display: block; 
+      padding: 1rem 1.5rem; 
+      color: #fff; 
+      text-decoration: none; 
+      font-weight: 600; 
     }
     nav li a:hover,
-    nav li a.active {
-      background: #005f87;
+    nav li a.active { 
+      background: #005f87; 
     }
     
-    /* Hero Section */
+    /* Hero Section using social.jpeg as background */
     .hero {
-      position: relative;
+      position: relative; 
       height: 300px;
-      background: url('images/social-hero.jpg') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
+      background: url('social.jpeg') center/cover no-repeat;
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      color: #fff; 
       text-shadow: 0 2px 4px rgba(0,0,0,0.6);
       padding: 1rem;
     }
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0; 
-      left: 0;
-      height: 100%; 
-      width: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 1;
+    /* Removed the ::before pseudo-element so no gray overlay appears */
+    .hero > div { 
+      position: relative; 
+      z-index: 1; 
+      text-align: center; 
     }
-    .hero > div {
-      position: relative;
-      z-index: 2;
-      text-align: center;
+    .hero h2 { 
+      font-size: 2.5rem; 
+      font-family: 'Poppins', sans-serif; 
+      margin-bottom: 0.5rem; 
     }
-    .hero h2 {
-      font-size: 2.5rem;
-      font-family: 'Poppins', sans-serif;
-      margin-bottom: 0.5rem;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin: 0;
-    }
-    /* Extra Social Image Under Hero Text */
-    .hero-extra-image {
-      margin-top: 20px;
-      text-align: center;
-    }
-    .hero-extra-image img {
-      max-width: 80%;
-      height: auto;
-      border-radius: 8px;
+    .hero p { 
+      font-size: 1.2rem; 
+      margin: 0; 
     }
     
     /* Main Content */
@@ -149,39 +130,39 @@
     }
     
     /* Visual Data Section */
-    .visual-data {
-      text-align: center;
-      margin: 2rem 0;
+    .visual-data { 
+      text-align: center; 
+      margin: 2rem 0; 
     }
-    .visual-data h3 {
-      font-family: 'Poppins', sans-serif;
-      margin-bottom: 1rem;
+    .visual-data h3 { 
+      font-family: 'Poppins', sans-serif; 
+      margin-bottom: 1rem; 
     }
-    #socialChart {
-      max-width: 600px;
-      margin: 0 auto;
+    #socialChart { 
+      max-width: 600px; 
+      margin: 0 auto; 
     }
-    .chart-info {
-      max-width: 600px;
-      margin: 1rem auto;
-      padding: 1rem;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      font-size: 0.95rem;
-      text-align: left;
+    .chart-info { 
+      max-width: 600px; 
+      margin: 1rem auto; 
+      padding: 1rem; 
+      background: #fff; 
+      border-radius: 8px; 
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+      font-size: 0.95rem; 
+      text-align: left; 
     }
     
     /* Footer */
-    footer {
-      background: #002c43;
-      color: #ccc;
-      padding: 1.5rem 0;
-      text-align: center;
-      font-size: 0.9rem;
+    footer { 
+      background: #002c43; 
+      color: #ccc; 
+      padding: 1.5rem 0; 
+      text-align: center; 
+      font-size: 0.9rem; 
     }
-    footer p {
-      margin: 0.25rem 0;
+    footer p { 
+      margin: 0.25rem 0; 
     }
     
     @media (max-width: 768px) {
@@ -220,14 +201,10 @@
     <div>
       <h2>The Impact on Social Skills</h2>
       <p>Exploring the effects of technology and screen time on children's ability to interact.</p>
-      <!-- Insert Social Image Under the Hero Text -->
-      <div class="hero-extra-image">
-        <img src="social.jpeg" alt="Children engaging in social interaction">
-      </div>
     </div>
   </section>
   
-  <!-- Main Content -->
+  <!-- Main Content Section -->
   <main class="container">
     <section class="intro">
       <h2>How Digital Exposure Influences Social Interaction</h2>
