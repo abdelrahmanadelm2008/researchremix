@@ -10,30 +10,30 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     /* Common Styles */
-    * { 
-      box-sizing: border-box; 
-      transition: all 0.3s ease; 
+    * {
+      box-sizing: border-box;
+      transition: all 0.3s ease;
     }
-    body { 
-      margin: 0; 
-      font-family: 'Open Sans', sans-serif; 
-      background: #f4f8fb; 
-      color: #333; 
-      line-height: 1.6; 
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: #f4f8fb;
+      color: #333;
+      line-height: 1.6;
     }
-    .container { 
-      width: 90%; 
-      max-width: 1200px; 
-      margin: 0 auto; 
-      padding: 0 1rem; 
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
     }
     
     /* Header & Navigation */
     header {
       background: linear-gradient(135deg, #004d7a, #008793);
       padding: 2rem 1rem;
-      position: sticky; 
-      top: 0; 
+      position: sticky;
+      top: 0;
       z-index: 1000;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       text-align: center;
@@ -43,133 +43,136 @@
     header .header-text {
       text-align: center;
     }
-    header h1 { 
-      font-family: 'Poppins', sans-serif; 
-      margin: 0.2rem 0; 
-      font-size: 2.5rem; 
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      margin: 0.2rem 0;
+      font-size: 2.5rem;
     }
-    .tagline { 
-      font-size: 1rem; 
-      font-style: italic; 
-      opacity: 0.9; 
-      margin-top: 0.5rem; 
+    .tagline {
+      font-size: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+      margin-top: 0.5rem;
     }
     nav {
       background: #002c43;
     }
-    nav ul { 
-      list-style: none; 
-      display: flex; 
-      justify-content: center; 
-      margin: 0; 
-      padding: 0; 
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
     }
     nav li a {
-      display: block; 
-      padding: 1rem 1.5rem; 
-      color: #fff; 
-      text-decoration: none; 
-      font-weight: 600; 
+      display: block;
+      padding: 1rem 1.5rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
     }
     nav li a:hover,
-    nav li a.active { 
-      background: #005f87; 
+    nav li a.active {
+      background: #005f87;
     }
     
-    /* Hero Section using parental.jpg as full background without overlay */
+    /* Hero Section using parental.jpg as background with full image visible */
     .hero {
       position: relative;
       height: 300px;
-      /* Use parental.jpg as background with contain to display the entire image */
-      background: url('parental.jpg') center/contain no-repeat;
-      /* Optional: set a background color to fill any empty space */
-      background-color: #004d7a;
-      display: flex; 
-      align-items: center; 
-      justify-content: center;
+      background-color: #004d7a; /* fallback color */
+      overflow: hidden;
+    }
+    .hero img.bg-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* ensures the entire image is shown without cropping */
+      z-index: 0;
+    }
+    .hero .hero-text {
+      position: relative;
+      z-index: 1;
+      text-align: center;
       color: #fff;
-      /* No pseudo-element overlay, so the entire image shows without cutting parts */
       padding: 1rem;
     }
-    .hero > div { 
-      position: relative; 
-      z-index: 1; 
-      text-align: center; 
+    .hero .hero-text h2 {
+      font-size: 2.5rem;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 0.5rem;
     }
-    .hero h2 { 
-      font-size: 2.5rem; 
-      font-family: 'Poppins', sans-serif; 
-      margin-bottom: 0.5rem; 
-    }
-    .hero p { 
-      font-size: 1.2rem; 
-      margin: 0; 
+    .hero .hero-text p {
+      font-size: 1.2rem;
+      margin: 0;
     }
     
     /* Main Content */
-    main { 
-      padding: 2rem 0; 
+    main {
+      padding: 2rem 0;
     }
-    .intro { 
-      text-align: left; 
-      margin-bottom: 2rem; 
+    .intro {
+      text-align: left;
+      margin-bottom: 2rem;
     }
-    .intro h2 { 
-      font-family: 'Poppins', sans-serif; 
-      margin-bottom: 1rem; 
+    .intro h2 {
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 1rem;
     }
-    .intro p { 
-      max-width: 800px; 
-      margin: 0 auto 1rem; 
+    .intro p {
+      max-width: 800px;
+      margin: 0 auto 1rem;
     }
-    .intro ul { 
-      max-width: 800px; 
-      margin: 0 auto 1rem; 
-      padding-left: 1.2rem; 
+    .intro ul {
+      max-width: 800px;
+      margin: 0 auto 1rem;
+      padding-left: 1.2rem;
     }
-    .intro ul li { 
-      margin-bottom: 0.5rem; 
+    .intro ul li {
+      margin-bottom: 0.5rem;
     }
     
     /* Visual Data Section */
-    .visual-data { 
-      text-align: center; 
-      margin: 2rem 0; 
+    .visual-data {
+      text-align: center;
+      margin: 2rem 0;
     }
-    .visual-data h3 { 
-      font-family: 'Poppins', sans-serif; 
-      margin-bottom: 1rem; 
+    .visual-data h3 {
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 1rem;
     }
-    #parentalChart { 
-      max-width: 600px; 
-      margin: 0 auto; 
+    #parentalChart {
+      max-width: 600px;
+      margin: 0 auto;
     }
-    .chart-info { 
-      max-width: 600px; 
-      margin: 1rem auto; 
+    .chart-info {
+      max-width: 600px;
+      margin: 1rem auto;
       padding: 1rem;
-      background: #fff; 
-      border-radius: 8px; 
+      background: #fff;
+      border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      font-size: 0.95rem; 
+      font-size: 0.95rem;
       text-align: left;
     }
     
     /* Footer */
-    footer { 
-      background: #002c43; 
-      color: #ccc; 
-      padding: 1.5rem 0; 
-      text-align: center; 
-      font-size: 0.9rem; 
+    footer {
+      background: #002c43;
+      color: #ccc;
+      padding: 1.5rem 0;
+      text-align: center;
+      font-size: 0.9rem;
     }
-    footer p { 
-      margin: 0.25rem 0; 
+    footer p {
+      margin: 0.25rem 0;
     }
     
     @media (max-width: 768px) {
-      nav ul { 
-        flex-direction: column; 
+      nav ul {
+        flex-direction: column;
       }
     }
   </style>
@@ -198,9 +201,10 @@
     </div>
   </nav>
   
-  <!-- Hero Section using parental.jpg as background, fully visible -->
+  <!-- Hero Section using parental.jpg as full background -->
   <section class="hero">
-    <div>
+    <img class="bg-image" src="parental.jpg" alt="Parental guidance image">
+    <div class="hero-text">
       <h2>The Critical Role of Parents</h2>
       <p>Strategies to manage digital exposure and promote healthy development.</p>
     </div>
