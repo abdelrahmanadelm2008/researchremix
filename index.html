@@ -39,17 +39,7 @@
       text-align: center;
       color: #fff;
     }
-    header .logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      color: #fff;
-    }
-    header .logo img {
-      width: 50px;
-      margin-right: 1rem;
-    }
+    /* Removed logo image; now only text is displayed */
     header h1 {
       font-family: 'Poppins', sans-serif;
       margin: 0.2rem 0;
@@ -83,38 +73,33 @@
       background: #005f87;
     }
     
-    /* Hero Section with Integrated Extra Image */
+    /* Hero Section with Direct Blue Background Image */
     .hero {
       position: relative;
       height: 400px;
-      background: url('images/home-hero.jpg') center/cover no-repeat;
+      background: url('images/home-hero.jpg') center/cover no-repeat; /* Blue-themed image expected */
       text-align: center;
       color: #fff;
       padding: 3rem 1rem;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 1;
+      /* Removed the gray overlay (::before) */
     }
     .hero-overlay {
       position: relative;
-      z-index: 2;
+      z-index: 1;
     }
     .hero-overlay h2 {
       font-family: 'Poppins', sans-serif;
-      font-size: 2.5rem;
+      font-size: 3rem; /* Increased size */
       margin-bottom: 0.5rem;
+      color: #ffffff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Stronger contrast */
       animation: fadeIn 1.5s ease-in;
     }
     .hero-overlay p {
-      font-size: 1.2rem;
+      font-size: 1.5rem; /* Increased size */
       margin-bottom: 1rem;
+      color: #ffffff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
       animation: fadeIn 2s ease-in;
     }
     /* Extra Image Under Hero Text */
@@ -312,16 +297,11 @@
   </style>
 </head>
 <body>
-  <!-- Header Section -->
+  <!-- Header Section (Logo Removed) -->
   <header>
     <div class="container">
-      <a href="index.html" class="logo" aria-label="Digital Dilemmas Home">
-        <img src="images/logo.png" alt="Digital Dilemmas Logo">
-        <div>
-          <h1>Digital Dilemmas</h1>
-          <p class="tagline">Understanding Technology's Impact on Child Development</p>
-        </div>
-      </a>
+      <h1>Digital Dilemmas</h1>
+      <p class="tagline">Understanding Technology's Impact on Child Development</p>
     </div>
   </header>
   
@@ -338,12 +318,12 @@
     </div>
   </nav>
   
-  <!-- Hero Section -->
+  <!-- Hero Section with Blue Background Image and Integrated Extra Image -->
   <section class="hero">
     <div class="hero-overlay">
       <h2>Exploring the Digital Landscape</h2>
       <p>Screen time, video games, and AI: shaping the next generation</p>
-      <!-- Extra Image Under the Hero Text -->
+      <!-- Extra Image Replacing the Gray Box -->
       <div class="hero-extra-image">
         <img src="kid-boy-using-digital-tablet-600nw-2132642255.webp" alt="Kid boy using a digital tablet">
       </div>
